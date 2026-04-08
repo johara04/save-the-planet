@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background: black;
+  color: white;
+  transition: background 0.8s ease;
+}
+
+/* Progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #00ffcc, #00c3ff, #7a5cff);
+  width: 0%;
+  z-index: 999;
+  box-shadow: 0 0 10px #00c3ff;
+}
+
+/* Sections */
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow overlay */
+section::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  top: -25%;
+  left: -25%;
+  pointer-events: none;
+}
+
+/* Glass card */
+.content {
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 60px;
+  border-radius: 25px;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  transition: all 0.5s ease;
+}
+
+/* Glow hover */
+.content:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 0 40px rgba(0,255,200,0.3);
+}
+
+/* Typography */
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+/* Animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(100px) scale(0.9);
+  filter: blur(10px);
+  transition: all 1.3s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* THEMES */
+
+/* Clean */
+.clean {
+  background: radial-gradient(circle at top, #00ffcc33, black);
+}
+
+/* Pollution */
+.pollution {
+  background: radial-gradient(circle at center, #ff000033, black);
+}
+
+/* Crisis */
+.crisis {
+  background: radial-gradient(circle at bottom, #660000, black);
+}
+
+/* Solution */
+.solution {
+  background: radial-gradient(circle at top, #00c3ff33, black);
+}
+
+/* Floating elements */
+.floating {
+  position: absolute;
+  font-size: 7rem;
+  opacity: 0.05;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
